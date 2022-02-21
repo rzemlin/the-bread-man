@@ -12,7 +12,11 @@ class RecipesController < ApplicationController
 
   # GET /recipes/new
   def new
-    @recipe = Recipe.new
+    @recipe = current_user.build
+  end
+  
+  def create
+    @recipe = current_user.build(post_params)
   end
 
   # GET /recipes/1/edit
