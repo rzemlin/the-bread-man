@@ -1,7 +1,16 @@
 <% if user_signed_in? %>
 <li class="nav-item">
-          <%= link_to "Recipes", recipes_path, class:"nav-link"%>
+          <%= link_to " Your Recipes", recipes_path, class:"nav-link"%>
         </li>
+
+        <li class="nav-item">
+          <%= link_to "All Recipes", recipes_path, class:"nav-link"%>
+        </li>
+
+        <li class="nav-item">
+          <%= link_to "Ingredients", ingredients_path, class:"nav-link"%>
+        </li>
+
 <% else %>
-<%=  'try again' %>
+<%=  'Goodbye' %>
 <% end %>
