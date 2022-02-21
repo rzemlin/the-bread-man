@@ -8,6 +8,8 @@ class IngredientsController < ApplicationController
 
   # GET /ingredients/1 or /ingredients/1.json
   def show
+    @ingredients = Ingredient.all
+    redirect_to 'ingredient/index'
   end
 
   # GET /ingredients/new
