@@ -11,6 +11,7 @@ class User::SessionsController < Devise::SessionsController
   # POST /resource/sign_in
    def create
      super
+     #render 'recipes/index'
    end
 
   # DELETE /resource/sign_out

@@ -1,14 +1,14 @@
 Rails.application.routes.draw do
   
-  devise_for :users, :controllers => {
-    :registrations => "users/registrations",
-    :sessions => "users/sessions",
-    :passwords => "users/passwords",
-    :confirmations => "users/confirmations" }
-  devise_scope :users do 
-    get 'signup', to: 'users/registrations#new'
-    get 'signin', to: 'users/sessions#new'
-    get 'signout', to: 'users/sessions#destroy'
+  devise_for :user, :controllers => {
+    :registrations => "user/registrations",
+    :sessions => "user/sessions",
+    :passwords => "user/passwords",
+    :confirmations => "user/confirmations" }
+  devise_scope :user do 
+    get 'signup', to: 'user/registrations#new'
+    get 'signin', to: 'user/sessions#new'
+    get 'signout', to: 'user/sessions#destroy'
   end
   
   resources :ingredients

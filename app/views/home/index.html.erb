@@ -1,3 +1,7 @@
 <% if user_signed_in? %>
-<%= render "recipes/index" %>
+<li class="nav-item">
+          <%= link_to "Recipes", recipes_path, class:"nav-link"%>
+        </li>
+<% else %>
+<%=  'try again' %>
 <% end %>
