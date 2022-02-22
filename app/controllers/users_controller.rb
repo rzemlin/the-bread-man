@@ -4,8 +4,9 @@ class UsersController < ApplicationController
     end
 
     def index
-        
-        #render '/users/index'
+        @recipes = Recipe.all
+        @ingredients = Ingredient.all
+        @user = current_user
 
     end
 
