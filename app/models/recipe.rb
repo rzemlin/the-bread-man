@@ -1,4 +1,4 @@
 class Recipe < ApplicationRecord
     belongs_to :user
-    belongs_to :ingredients
+    has_many :ingredients
 end
