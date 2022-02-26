@@ -17,17 +17,21 @@ class RecipesController < ApplicationController
     @recipe = Recipe.new
     @user = current_user
     @recipe.save
+    @user.save
   end
 
   # GET /recipes/1/edit
   def edit
+    set_recipe
+    @user = @recipe.user_id
+    @ingredient = Ingredient.find_by_id(params[:id])
   end
 
   # POST /recipes or /recipes.json
   def create
-    @recipe.user_id = current_user.id
     @recipe = Recipe.new(recipe_params)
-    @recipe.ingredients = Ingredient.new(params :ingredients)
+    @recipe.user = current_user
+    @recipe.ingredients = Ingredient.new(params [:ingredients])
     @recipe.save
     respond_to do |format|
       if @recipe.save
