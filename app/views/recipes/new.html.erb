@@ -1,13 +1,10 @@
 <h1>New Recipe</h1>
 
-"if this works I could add my own for here and create a better form"
-
-<%= render 'form', recipe: @recipe %>
 <%= simple_form_for(@recipe) do |f| %>
   <br>Name:<br>
   <%= f.input :name %>
   <%= f.input :description %>
-  <%= f.input :ingredients %>
+  <%= f.input :recipe_ingredient %>
   <%= f.button :submit %>
   <% end %>
 <%= link_to 'Back', users_path %>
