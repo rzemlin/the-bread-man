@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_02_24_144957) do
+ActiveRecord::Schema.define(version: 2022_02_27_182315) do
 
   create_table "ingredients", force: :cascade do |t|
     t.string "name"
@@ -23,20 +23,21 @@ ActiveRecord::Schema.define(version: 2022_02_24_144957) do
     t.index ["user_id"], name: "index_ingredients_on_user_id"
   end
 
+# Could not dump table "recipe_ingredients" because of following StandardError
+#   Unknown type 'foreign_key' for column 'recipe_id'
+
   create_table "recipes", force: :cascade do |t|
     t.string "name"
     t.string "description"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.integer "user_id"
-    t.text "ingredients"
     t.integer "ingredients_id"
     t.index ["ingredients_id"], name: "index_recipes_on_ingredients_id"
     t.index ["user_id"], name: "index_recipes_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
-    t.string "name"
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
     t.string "reset_password_token"
@@ -46,6 +47,7 @@ ActiveRecord::Schema.define(version: 2022_02_24_144957) do
     t.datetime "updated_at", precision: 6, null: false
     t.string "first_name"
     t.string "last_name"
+    t.string "name"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end

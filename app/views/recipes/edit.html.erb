@@ -1,6 +1,5 @@
-<h1>Editing Recipe</h1>
+<h2>Edit Recipe</h2>
 
-<%= render 'form', recipe: @recipe %>
 <%= form_for(@recipe) do |f| %>
   <br>Name:<br>
   <%= f.text_field :name %><br><br>
@@ -9,9 +8,11 @@
   <%= f.text_area :description %><br><br>
 
   <br>Ingredients:<br>
-  <%= f.text_area :ingredients %><br><br>
+  <%= f.text_area :recipe_ingredients %><br><br>
   
   <%= f.submit %>
+
+  <% end %>
 
 <%= link_to 'Show', @recipe %> 
 <%= link_to 'Back', recipes_path %>
